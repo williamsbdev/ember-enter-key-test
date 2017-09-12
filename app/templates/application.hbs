@@ -1,5 +1,15 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-{{welcome-page}}
-{{!-- Feel free to remove this! --}}
-
-{{outlet}}
+<div>
+  <form {{action "search" on="submit"}} novalidate>
+    Users:
+    <span>
+      {{input id="users-search" placeholder="Search users" value=model.searchValue autocomplete="off" key-up="search"}}
+    </span>
+  </form>
+</div>
+<ul>
+  {{#each model.users as |user|}}
+    <li>
+      {{user.name}}
+    </li>
+  {{/each}}
+</ul>
